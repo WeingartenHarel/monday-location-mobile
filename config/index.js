@@ -1,12 +1,26 @@
-var config;
+const env = process.env.NODE_ENV || 'development';
 
-// keys.js - figure out what set of credentials to return
-if (process.env.NODE_ENV === 'production') {
-  // we are in production - return the prod set of keys
-  config = require('./prod')
-} else {
-  // we are in development - return the dev keys!!!
-  config = require('./dev')
+const config = { 
+    development: {
+        host: "localhost",
+        database: "socket_crud",
+        username: "root",
+        password: "",
+        dialect: "mongo",
+        operatorsAliases: "false",
+        logging: false
+    },
+    production: {
+        host: "localhost",
+        database: "socket_crud",
+        username: "root",
+        password: "",
+        dialect: "mongo",
+        operatorsAliases: "false",
+        logging: false
+    }
 }
 
-module.exports = config
+module.exports = { 
+    ...config[env]
+}

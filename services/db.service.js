@@ -7,7 +7,7 @@ module.exports = {
 }
  
 // Database Name
-const dbName = 'mixDB';
+const dbName = 'dbName';
 
 var dbConn = null;
 
