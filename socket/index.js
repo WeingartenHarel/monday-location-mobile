@@ -10,6 +10,12 @@ module.exports = (io) => {
             socket.broadcast.emit('get location', location);
         });
         
+		socket.on('send videoRef', (videoTracks) =>{ 
+            console.log('videoRef ',videoTracks)
+            // socket.emit('get location', location);
+            socket.broadcast.emit('get videoRef', videoTracks);
+        });
+        
 		// socket.on('fetchMovies', () => fetchMovies(socket));
         
         // socket.on('addMovie', (data) => addMovie(socket, data));
